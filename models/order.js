@@ -7,7 +7,7 @@ const order = {
     });
   },
   create: (name, item, cb) => {
-    orm.create("orders", name, item, result => {
+    orm.create(name, item, result => {
       cb(result);
     });
   },

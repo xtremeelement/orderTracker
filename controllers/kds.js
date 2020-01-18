@@ -4,14 +4,17 @@ const order = require("../models/order");
 
 router.get("/", (req, res) => {
   order.getAll(result => {
+    var data = {
+      orders: result
+    };
     console.log(result);
-    res.render("index", result);
+    res.render("index", { orders: result });
   });
 });
 
 router.post("/api/orders", (req, res) => {
   order.create(req.body.name, req.body.item, result => {
-    res.json({ id: result.id });
+    res.redirect("/");
   });
 });
 
