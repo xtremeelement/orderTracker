@@ -9,7 +9,8 @@ app.use(express.json());
 app.engine("handlebars", exphbs({ defaultLayout: "default" }));
 app.set("view engine", "handlebars");
 
-require("./controllers/kds")(app);
+const routes = require("./controllers/kds");
+app.use(routes);
 
 app.listen(PORT, () =>
   console.log(`Server running at http://localhost:${PORT}`)

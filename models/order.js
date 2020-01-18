@@ -2,7 +2,7 @@ const orm = require("../config/orm");
 
 const order = {
   getAll: cb => {
-    orm.all("orders", result => {
+    orm.all(result => {
       cb(result);
     });
   },
